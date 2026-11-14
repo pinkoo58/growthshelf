@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Downloads | GrowthShelf</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap">
+<style>
+:root{--bg:#F5F7FA;--surface:#fff;--ink:#0F1B2D;--muted:#51627A;--line:#D5DEE9;--deep:#0F1B2D;--deep2:#16294A;--go:#2EC27E;--go-ink:#06231A;--brand:#0F7A55;--soft:#E3F6EC;--warn:#FFF4D6;--warn-ink:#5A3B00;
+ --fd:'Poppins','Hind','Noto Sans Devanagari',system-ui,sans-serif;--fb:'Hind','Noto Sans Devanagari',system-ui,-apple-system,'Segoe UI',sans-serif}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1220;--surface:#111D31;--ink:#E8EFF8;--muted:#9DB0C8;--line:#25395A;--deep:#08101E;--deep2:#10203A;--brand:#43D6A0;--soft:#12332A;--warn:#33280E;--warn-ink:#F3D58A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1220;--surface:#111D31;--ink:#E8EFF8;--muted:#9DB0C8;--line:#25395A;--deep:#08101E;--deep2:#10203A;--brand:#43D6A0;--soft:#12332A;--warn:#33280E;--warn-ink:#F3D58A;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 var(--fb)}
+h1,h2,h3{font-family:var(--fd);line-height:1.25;margin:0;text-wrap:balance}:lang(hi) h1,:lang(hi) h2,:lang(hi) h3{line-height:1.4}
+p{margin:0}a{color:inherit}[hidden]{display:none!important}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{background:var(--deep);color:#F2F6FB;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--deep);z-index:9}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;min-height:56px;gap:12px}
+.logo{font:800 21px var(--fd);text-decoration:none}.logo span{color:var(--go)}
+.lang{display:inline-flex;border:1.5px solid rgba(255,255,255,.3);border-radius:999px;padding:3px;gap:2px}
+.lang button{border:0;background:transparent;color:#F2F6FB;font:600 13px var(--fb);padding:6px 12px;border-radius:999px;min-height:34px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--go);color:var(--go-ink)}
+.hero{background:radial-gradient(110% 120% at 90% 0%,var(--deep2),var(--deep) 70%);color:#F2F6FB;padding:34px 0 40px}
+.ok{width:56px;height:56px;border-radius:50%;background:var(--go);display:grid;place-items:center;margin-bottom:14px}
+.ok svg{width:30px;height:30px}
+.hero h1{font-size:clamp(28px,7vw,40px)}
+.hero p{color:#A9B9D0;margin-top:8px}
+.pname{margin-top:16px;display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:8px 14px;font:600 16px var(--fd)}
+main{padding-block:26px 50px}
+.warn{background:var(--warn);color:var(--warn-ink);border-radius:14px;padding:14px 16px;font-size:15.5px;font-weight:500}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:14px}
+.group h2{font-size:18px;margin-bottom:10px}
+.files{display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:54px;padding:12px 18px;border-radius:12px;background:var(--go);color:var(--go-ink);font:700 16.5px var(--fb);text-decoration:none;box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:22px;height:22px;flex:none}
+.btn.alt{background:var(--soft);color:var(--ink);box-shadow:none;border:1.5px solid var(--line)}
+.tips{display:grid;gap:10px;margin-top:22px}
+.tip{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15.5px}
+.tip b{font-family:var(--fd);font-weight:600;display:block;margin-bottom:2px}
+.err{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.more{margin-top:26px;display:grid;gap:10px}
+.line{display:inline-block;margin-top:8px;color:var(--brand);font-weight:600}
+footer{padding:20px 0 40px;color:var(--muted);font-size:13.5px}
+:focus-visible{outline:3px solid var(--go);outline-offset:2px;border-radius:8px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html">Growth<span>Shelf</span></a>
+  <div class="lang" role="group" aria-label="Language"><button id="lEn" type="button" aria-pressed="true">English</button><button id="lHi" type="button" aria-pressed="false">हिन्दी</button></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#06231A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+  <h1 id="h1"></h1><p id="sub"></p>
+  <div class="pname" id="pname" hidden></div>
+</div></section>
+
+<main class="wrap">
+  <div class="warn" id="warn"></div>
+  <div id="groups"></div>
+  <div class="err" id="err" hidden><h2 id="errH"></h2><p id="errP" style="margin-top:6px;color:var(--muted)"></p><a class="line" href="index.html" id="errA"></a></div>
+  <div class="tips" id="tips"></div>
+  <div class="more" id="more"></div>
+</main>
+<footer><div class="wrap"><p id="foot"></p><p style="margin-top:6px">© 2026 GrowthShelf · <a href="policies.html" id="polLink"></a></p></div></footer>
+
+<script>
+/* ============ SETTINGS ============ */
+var CONFIG = {
+  FILES_BASE: 'https://files.growthshelf.in/',   // where the PDFs are hosted (must end with /)
+  PIXEL_ID: '',                                  // same Meta Pixel ID as the other pages
+  EMAIL: 'support@growthshelf.in'
+};
+/* ================================= */
+var CATALOG = {"vastu-1": {"brand": "VastuShala", "en": "Vastu Quick Checklist", "hi": "वास्तु क्विक चेकलिस्ट", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/d258f620ea0044d25770/VastuShala_Vastu_Quick_Checklist_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/b1e8ff74224ef08ecf4b/VastuShala_Vastu_Quick_Checklist_Hindi.pdf"}]}, "vastu-2": {"brand": "VastuShala", "en": "Vastu Remedies Without Demolition", "hi": "बिना तोड़फोड़ वास्तु उपाय", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/dc80bbd893b4033ee1dc/VastuShala_Vastu_Remedies_Without_Demolition_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/4d1a74db6175adf70696/VastuShala_Vastu_Remedies_Without_Demolition_Hindi.pdf"}]}, "vastu-3": {"brand": "VastuShala", "en": "Vastu for Flats & Apartments", "hi": "फ्लैट और अपार्टमेंट के लिए वास्तु", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/e6e42ee54316ec36cd96/VastuShala_Vastu_for_Flats_Apartments_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/b77884a2cde34c8f9129/VastuShala_Vastu_for_Flats_Apartments_Hindi.pdf"}]}, "vastu-4": {"brand": "VastuShala", "en": "Vastu for Shops & Offices", "hi": "दुकान और ऑफिस के लिए वास्तु", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/abfa002d247bd4461ef1/VastuShala_Vastu_for_Shops_Offices_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/d06046f1a0da45325360/VastuShala_Vastu_for_Shops_Offices_Hindi.pdf"}]}, "vastu-5": {"brand": "VastuShala", "en": "Vastu for Kitchen", "hi": "रसोई के लिए वास्तु", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/ec00ad866ad75660cd45/VastuShala_Vastu_for_Kitchen_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/23c9767b32d125c9c324/VastuShala_Vastu_for_Kitchen_Hindi.pdf"}]}, "vastu-6": {"brand": "VastuShala", "en": "Vastu for Bedroom", "hi": "बेडरूम के लिए वास्तु", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/6d3a51215a0691aecf50/VastuShala_Vastu_for_Bedroom_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/e319f5859b2424082809/VastuShala_Vastu_for_Bedroom_Hindi.pdf"}]}, "vastu-7": {"brand": "VastuShala", "en": "Vastu for Pooja Room", "hi": "पूजा घर के लिए वास्तु", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/888cae2d6e1942f62c06/VastuShala_Vastu_for_Pooja_Room_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/52e847308eaea13efb7a/VastuShala_Vastu_for_Pooja_Room_Hindi.pdf"}]}, "vastu-8": {"brand": "VastuShala", "en": "Vastu for Study Room", "hi": "स्टडी रूम के लिए वास्तु", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/b56f2e5e6f534dfa1db0/VastuShala_Vastu_for_Study_Room_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/1ff8a3be1043078484a5/VastuShala_Vastu_for_Study_Room_Hindi.pdf"}]}, "vastu-9": {"brand": "VastuShala", "en": "Vastu for Main Entrance", "hi": "मुख्य द्वार के लिए वास्तु", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/61f343cbe70635a0264a/VastuShala_Vastu_for_Main_Entrance_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/1db908b0051253e0c403/VastuShala_Vastu_for_Main_Entrance_Hindi.pdf"}]}, "vastu-10": {"brand": "VastuShala", "en": "Vastu for Plot & Home Buying", "hi": "प्लॉट और घर खरीदने के लिए वास्तु", "value": 129, "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/6b03d8dd6aaece5604a7/VastuShala_Vastu_for_Plot_Home_Buying_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/7dc941de494ef19fbe58/VastuShala_Vastu_for_Plot_Home_Buying_Hindi.pdf"}]}, "vastu-bundle": {"brand": "VastuShala", "en": "VastuShala: All 10 Vastu books", "hi": "VastuShala: सभी 10 वास्तु किताबें", "value": 599, "groups": [{"en": "Vastu Quick Checklist", "hi": "वास्तु क्विक चेकलिस्ट", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/d258f620ea0044d25770/VastuShala_Vastu_Quick_Checklist_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/b1e8ff74224ef08ecf4b/VastuShala_Vastu_Quick_Checklist_Hindi.pdf"}]}, {"en": "Vastu Remedies Without Demolition", "hi": "बिना तोड़फोड़ वास्तु उपाय", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/dc80bbd893b4033ee1dc/VastuShala_Vastu_Remedies_Without_Demolition_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/4d1a74db6175adf70696/VastuShala_Vastu_Remedies_Without_Demolition_Hindi.pdf"}]}, {"en": "Vastu for Flats & Apartments", "hi": "फ्लैट और अपार्टमेंट के लिए वास्तु", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/e6e42ee54316ec36cd96/VastuShala_Vastu_for_Flats_Apartments_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/b77884a2cde34c8f9129/VastuShala_Vastu_for_Flats_Apartments_Hindi.pdf"}]}, {"en": "Vastu for Shops & Offices", "hi": "दुकान और ऑफिस के लिए वास्तु", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/abfa002d247bd4461ef1/VastuShala_Vastu_for_Shops_Offices_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/d06046f1a0da45325360/VastuShala_Vastu_for_Shops_Offices_Hindi.pdf"}]}, {"en": "Vastu for Kitchen", "hi": "रसोई के लिए वास्तु", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/ec00ad866ad75660cd45/VastuShala_Vastu_for_Kitchen_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/23c9767b32d125c9c324/VastuShala_Vastu_for_Kitchen_Hindi.pdf"}]}, {"en": "Vastu for Bedroom", "hi": "बेडरूम के लिए वास्तु", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/6d3a51215a0691aecf50/VastuShala_Vastu_for_Bedroom_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/e319f5859b2424082809/VastuShala_Vastu_for_Bedroom_Hindi.pdf"}]}, {"en": "Vastu for Pooja Room", "hi": "पूजा घर के लिए वास्तु", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/888cae2d6e1942f62c06/VastuShala_Vastu_for_Pooja_Room_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/52e847308eaea13efb7a/VastuShala_Vastu_for_Pooja_Room_Hindi.pdf"}]}, {"en": "Vastu for Study Room", "hi": "स्टडी रूम के लिए वास्तु", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/b56f2e5e6f534dfa1db0/VastuShala_Vastu_for_Study_Room_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/1ff8a3be1043078484a5/VastuShala_Vastu_for_Study_Room_Hindi.pdf"}]}, {"en": "Vastu for Main Entrance", "hi": "मुख्य द्वार के लिए वास्तु", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/61f343cbe70635a0264a/VastuShala_Vastu_for_Main_Entrance_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/1db908b0051253e0c403/VastuShala_Vastu_for_Main_Entrance_Hindi.pdf"}]}, {"en": "Vastu for Plot & Home Buying", "hi": "प्लॉट और घर खरीदने के लिए वास्तु", "files": [{"en": "English PDF", "hi": "अंग्रेज़ी PDF", "path": "d/6b03d8dd6aaece5604a7/VastuShala_Vastu_for_Plot_Home_Buying_English.pdf"}, {"en": "Hindi PDF", "hi": "हिंदी PDF", "path": "d/7dc941de494ef19fbe58/VastuShala_Vastu_for_Plot_Home_Buying_Hindi.pdf"}]}]}, "speak-1": {"brand": "SpeakShala", "en": "Daily Conversation Starter", "hi": "रोज़ की बातचीत", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/030561c59ea4b8015dfc/SpeakShala_01_Daily_Conversation_Starter.pdf"}]}, "speak-2": {"brand": "SpeakShala", "en": "Picture Dictionary", "hi": "चित्र शब्दकोश", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/1926dde692fe44c57b01/SpeakShala_02_Picture_Dictionary.pdf"}]}, "speak-3": {"brand": "SpeakShala", "en": "Tenses Made Easy", "hi": "काल आसानी से", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/751f88436b11c86fdace/SpeakShala_03_Tenses_Made_Easy.pdf"}]}, "speak-4": {"brand": "SpeakShala", "en": "100 Sentence Patterns", "hi": "100 वाक्य-साँचे", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/d24f98d014e48b67e303/SpeakShala_04_100_Sentence_Patterns.pdf"}]}, "speak-5": {"brand": "SpeakShala", "en": "Common Mistakes", "hi": "आम गलतियाँ", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/51e8151ffae4605e6341/SpeakShala_05_Common_Mistakes.pdf"}]}, "speak-6": {"brand": "SpeakShala", "en": "Pronunciation & Accent Guide", "hi": "सही उच्चारण", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/030ce091ef26de58b542/SpeakShala_06_Pronunciation__Accent_Guide.pdf"}]}, "speak-7": {"brand": "SpeakShala", "en": "Job Interview English", "hi": "नौकरी का इंटरव्यू", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/605dd7cee90027205ef7/SpeakShala_07_Job_Interview_English.pdf"}]}, "speak-8": {"brand": "SpeakShala", "en": "Office & Workplace English", "hi": "दफ़्तर की अंग्रेज़ी", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/36a769c116cae722f6dc/SpeakShala_08_Office__Workplace_English.pdf"}]}, "speak-9": {"brand": "SpeakShala", "en": "Everyday Situations", "hi": "रोज़ की स्थितियाँ", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/caa29610947dcedde888/SpeakShala_09_Everyday_Situations.pdf"}]}, "speak-10": {"brand": "SpeakShala", "en": "Idioms, Phrasal Verbs & 30-Day Challenge", "hi": "मुहावरे और चैलेंज", "value": 129, "files": [{"en": "PDF", "hi": "PDF", "path": "d/4e468a0c812843e73c8c/SpeakShala_10_Idioms_Phrasal_Verbs__30_Day_Challenge.pdf"}]}, "speak-bundle": {"brand": "SpeakShala", "en": "SpeakShala: All 10 Spoken English books", "hi": "SpeakShala: सभी 10 Spoken English किताबें", "value": 599, "groups": [{"en": "Daily Conversation Starter", "hi": "रोज़ की बातचीत", "files": [{"en": "PDF", "hi": "PDF", "path": "d/030561c59ea4b8015dfc/SpeakShala_01_Daily_Conversation_Starter.pdf"}]}, {"en": "Picture Dictionary", "hi": "चित्र शब्दकोश", "files": [{"en": "PDF", "hi": "PDF", "path": "d/1926dde692fe44c57b01/SpeakShala_02_Picture_Dictionary.pdf"}]}, {"en": "Tenses Made Easy", "hi": "काल आसानी से", "files": [{"en": "PDF", "hi": "PDF", "path": "d/751f88436b11c86fdace/SpeakShala_03_Tenses_Made_Easy.pdf"}]}, {"en": "100 Sentence Patterns", "hi": "100 वाक्य-साँचे", "files": [{"en": "PDF", "hi": "PDF", "path": "d/d24f98d014e48b67e303/SpeakShala_04_100_Sentence_Patterns.pdf"}]}, {"en": "Common Mistakes", "hi": "आम गलतियाँ", "files": [{"en": "PDF", "hi": "PDF", "path": "d/51e8151ffae4605e6341/SpeakShala_05_Common_Mistakes.pdf"}]}, {"en": "Pronunciation & Accent Guide", "hi": "सही उच्चारण", "files": [{"en": "PDF", "hi": "PDF", "path": "d/030ce091ef26de58b542/SpeakShala_06_Pronunciation__Accent_Guide.pdf"}]}, {"en": "Job Interview English", "hi": "नौकरी का इंटरव्यू", "files": [{"en": "PDF", "hi": "PDF", "path": "d/605dd7cee90027205ef7/SpeakShala_07_Job_Interview_English.pdf"}]}, {"en": "Office & Workplace English", "hi": "दफ़्तर की अंग्रेज़ी", "files": [{"en": "PDF", "hi": "PDF", "path": "d/36a769c116cae722f6dc/SpeakShala_08_Office__Workplace_English.pdf"}]}, {"en": "Everyday Situations", "hi": "रोज़ की स्थितियाँ", "files": [{"en": "PDF", "hi": "PDF", "path": "d/caa29610947dcedde888/SpeakShala_09_Everyday_Situations.pdf"}]}, {"en": "Idioms, Phrasal Verbs & 30-Day Challenge", "hi": "मुहावरे और चैलेंज", "files": [{"en": "PDF", "hi": "PDF", "path": "d/4e468a0c812843e73c8c/SpeakShala_10_Idioms_Phrasal_Verbs__30_Day_Challenge.pdf"}]}]}, "focus": {"brand": "The Focus Reset", "en": "The Focus Reset", "hi": "The Focus Reset", "value": 399, "files": [{"en": "PDF", "hi": "PDF", "path": "d/6177f574172e6a2257b4/The_Focus_Reset.pdf"}]}};
+var DL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 20h14"/></svg>';
+var TXT = {
+ en:{h1:'Thank you! Your ebook is ready',sub:'Download your files below. Save them to your phone or computer right now.',
+  warn:'Save your files now. Bookmark this page too, but do not share it. If you lose it, email us your payment details and we will help.',
+  open:'Download', errH:'This page needs a purchase link', errP:'Please open this page from the confirmation you see right after payment. If you already paid and see this message, email us your payment details and we will send your files.', errA:'Go to the ebooks',
+  tips:[['Read on your phone','Open the PDF in any PDF reader. Zoom in on pictures and tables.'],['Print on A4','Use "Fit to page" and, if you like, print only the pages you need such as checklists and worksheets.'],['Keep a backup','Save the files to Google Drive or your computer so you never lose them.']],
+  more:'More ebooks from GrowthShelf', help:'Need help? Email ', foot:'Personal use only. Please do not share, copy or resell these files.', pol:'Terms, Privacy, Refund and Delivery'},
+ hi:{h1:'धन्यवाद! आपकी ebook तैयार है',sub:'नीचे से अपनी फ़ाइलें डाउनलोड करें। उन्हें अभी अपने फ़ोन या कंप्यूटर में सेव कर लें।',
+  warn:'फ़ाइलें अभी सेव कर लें। इस पेज को बुकमार्क भी करें, पर किसी को शेयर न करें। पेज खो जाए तो अपने भुगतान की जानकारी हमें ईमेल करें, हम मदद करेंगे।',
+  open:'डाउनलोड करें', errH:'इस पेज के लिए ख़रीद का लिंक चाहिए', errP:'कृपया भुगतान के तुरंत बाद दिखने वाले पेज से इसे खोलें। अगर आप भुगतान कर चुके हैं और यह संदेश दिख रहा है, तो अपने भुगतान की जानकारी हमें ईमेल करें, हम आपको फ़ाइलें भेज देंगे।', errA:'Ebooks देखें',
+  tips:[['फ़ोन पर पढ़ें','PDF को किसी भी PDF रीडर में खोलें। चित्र और तालिकाएँ ज़ूम करके देखें।'],['A4 पर प्रिंट करें','"Fit to page" चुनें और चाहें तो सिर्फ़ ज़रूरी पन्ने, जैसे चेकलिस्ट और वर्कशीट, प्रिंट करें।'],['बैकअप रखें','फ़ाइलें Google Drive या कंप्यूटर में सेव करें ताकि कभी खोएँ नहीं।']],
+  more:'GrowthShelf की और ebooks', help:'मदद चाहिए? ईमेल करें: ', foot:'केवल निजी उपयोग के लिए। कृपया ये फ़ाइलें शेयर, कॉपी या दोबारा न बेचें।', pol:'नियम, गोपनीयता, रिफ़ंड और डिलीवरी'}
+};
+var $=function(s){return document.querySelector(s)};
+var LANG='en';
+function sget(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function url(p){return CONFIG.FILES_BASE+p}
+function btn(f,label){return '<a class="btn" href="'+url(f.path)+'" target="_blank" rel="noopener">'+label+DL+'</a>'}
+function render(){
+  var d=TXT[LANG], key=''; try{key=new URLSearchParams(location.search).get('p')||''}catch(e){}
+  var prod=CATALOG[key];
+  $('#h1').textContent=d.h1; $('#sub').textContent=d.sub; $('#warn').textContent=d.warn; $('#foot').textContent=d.foot; $('#polLink').textContent=d.pol;
+  $('#more').innerHTML='<a class="btn alt" href="index.html">'+d.more+' &rarr;</a><p style="color:var(--muted);font-size:15px">'+d.help+'<a href="mailto:'+CONFIG.EMAIL+'" style="color:var(--brand);font-weight:600">'+CONFIG.EMAIL+'</a></p>';
+  $('#tips').innerHTML=d.tips.map(function(t){return '<div class="tip"><b>'+t[0]+'</b>'+t[1]+'</div>'}).join('');
+  if(!prod){ $('#groups').innerHTML=''; $('#err').hidden=false; $('#errH').textContent=d.errH; $('#errP').textContent=d.errP; $('#errA').textContent=d.errA; $('#warn').hidden=true; $('#pname').hidden=true; $('#tips').hidden=true; $('.hero').style.display='none'; return; }
+  $('#pname').hidden=false; $('#pname').textContent=prod[LANG]||prod.en;
+  var groups = prod.groups || [{en:prod.en,hi:prod.hi,files:prod.files,single:true}];
+  $('#groups').innerHTML=groups.map(function(g){
+    var bs=g.files.map(function(f){return btn(f,d.open+' '+f[LANG])}).join('');
+    var title = g.single ? '' : '<h2>'+(g[LANG]||g.en)+'</h2>';
+    return '<div class="group">'+title+'<div class="files">'+bs+'</div></div>';
+  }).join('');
+}
+function setLang(l,save){ LANG=l; document.documentElement.lang=l; $('#lEn').setAttribute('aria-pressed',l==='en'); $('#lHi').setAttribute('aria-pressed',l==='hi'); render(); if(save){try{localStorage.setItem('gs_lang',l)}catch(e){}} }
+(function(){
+  var s='en'; try{ var q=new URLSearchParams(location.search).get('lang'); if(q==='hi'||q==='en') s=q; else { var g=sget('gs_lang')||sget('vs_lang')||sget('ss_lang'); if(g==='hi'||g==='en') s=g; } }catch(e){}
+  $('#lEn').addEventListener('click',function(){setLang('en',true)}); $('#lHi').addEventListener('click',function(){setLang('hi',true)});
+  setLang(s,false);
+  // Meta Pixel Purchase (once per product per browser session)
+  try{
+    var key=new URLSearchParams(location.search).get('p'), prod=CATALOG[key];
+    if(CONFIG.PIXEL_ID && prod){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init',CONFIG.PIXEL_ID); window.fbq('track','PageView');
+      var seen='gs_purchase_'+key, done=false; try{done=sessionStorage.getItem(seen)}catch(e){}
+      if(!done){ window.fbq('track','Purchase',{value:prod.value,currency:'INR',content_name:prod.en,content_type:'product'}); try{sessionStorage.setItem(seen,'1')}catch(e){} }
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
