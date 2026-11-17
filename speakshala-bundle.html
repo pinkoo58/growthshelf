@@ -573,22 +573,17 @@ document.addEventListener('keydown',function(e){if($('#lb').hidden)return;if(e.k
   var sent={};
   function once(ev,key,d){if(sent[ev+key])return;sent[ev+key]=1;trackC(ev,d)}
   // 1. Scroll depth: ScrollDepth {percent: 25|50|75|90}
+  // 2. Section reached: SectionView {section, order}. A section counts as reached once its
+  //    top edge passes 60% of the screen height. Position-based, so fast scrolls and very
+  //    tall sections (e.g. the books grid on phones) are still counted, in page order.
   var marks=[25,50,75,90];
-  function depth(){
-    var h=document.documentElement.scrollHeight-innerHeight; if(h<=0)return;
-    var p=Math.round((window.scrollY||0)/h*100);
-    marks.forEach(function(m){if(p>=m)once('ScrollDepth',m,{percent:m})});
-  }
-  addEventListener('scroll',depth,{passive:true});
-  // 2. Section reached: SectionView {section, order}, in page order
   var secs=[['pain','#pain'],['method','#method'],['books','#books'],['samples','#peek'],['plan','#path'],['price_box','#offer-box'],['faq','#faq'],['final_cta','.final']];
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(en){
-      if(!en.isIntersecting)return; var n=en.target.getAttribute('data-sec');
-      once('SectionView',n,{section:n,order:+en.target.getAttribute('data-ord')}); io.unobserve(en.target);
-    })},{threshold:0.35});
-    secs.forEach(function(s,i){var el=$(s[1]);if(el){el.setAttribute('data-sec',s[0]);el.setAttribute('data-ord',i+1);io.observe(el)}});
+  function onScroll(){
+    var y=window.scrollY||0, h=document.documentElement.scrollHeight-innerHeight;
+    if(h>0){var p=Math.round(y/h*100); marks.forEach(function(m){if(p>=m)once('ScrollDepth',m,{percent:m})})}
+    secs.forEach(function(s,i){var el=$(s[1]); if(el&&el.getBoundingClientRect().top<innerHeight*0.6)once('SectionView',s[0],{section:s[0],order:i+1})});
   }
+  addEventListener('scroll',onScroll,{passive:true});
   // 3. Engaged time on page (only while the tab is visible): EngagedTime {seconds: 15|30|60}
   var secsOn=0;
   setInterval(function(){
